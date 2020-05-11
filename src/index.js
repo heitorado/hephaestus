@@ -1,14 +1,36 @@
 import { registerRootComponent } from 'expo';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
 import Screens from 'screens/index';
 import { Feather } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
-const App = () => (
-  <NavigationContainer>
+function getHeaderTitle(route) {
+  const routeName = route.state
+    ? route.state.routes[route.state.index].name
+    : route.params?.screen || 'Feed';
+
+  switch (routeName) {
+    case 'RECIPES_LIST':
+      return 'Receitas';
+    case 'PRICE_CALCULATOR':
+      return 'Calculadora de Preço';
+    case 'INGREDIENTS_LIST':
+      return 'Ingredientes';
+    case 'LABEL_GENERATOR':
+      return 'Gerador de Etiquetas';
+    case 'SAVED_ITEMS_LIST':
+      return 'Itens Salvos';
+    default:
+      return 'Lista de Receitas';
+  }
+}
+
+function MainTabs() {
+  return (
     <Tab.Navigator
       initialRouteName="RECIPES_LIST"
       screenOptions={({ route }) => ({
@@ -33,7 +55,10 @@ const App = () => (
       <Tab.Screen
         name="RECIPES_LIST"
         component={Screens.RecipesScreen}
-        options={{ title: 'Receitas' }}
+        options={({ route }) => ({
+          title: 'Receitas',
+          headerTitle: route.name,
+        })}
       />
       <Tab.Screen
         name="PRICE_CALCULATOR"
@@ -56,6 +81,23 @@ const App = () => (
         options={{ title: 'Itens Salvos' }}
       />
     </Tab.Navigator>
+  );
+}
+
+const Stack = createStackNavigator();
+
+const App = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="HOME"
+        component={MainTabs}
+        options={({ route }) => ({
+          headerTitle: getHeaderTitle(route),
+        })}
+      />
+
+    </Stack.Navigator>
   </NavigationContainer>
 );
 
