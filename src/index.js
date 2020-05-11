@@ -30,11 +30,31 @@ const App = () => (
         },
       })}
     >
-      <Tab.Screen name="RECIPES_LIST" component={Screens.RecipesScreen} />
-      <Tab.Screen name="PRICE_CALCULATOR" component={Screens.PriceCalculatorScreen} />
-      <Tab.Screen name="INGREDIENTS_LIST" component={Screens.IngredientsScreen} />
-      <Tab.Screen name="LABEL_GENERATOR" component={Screens.LabelGeneratorScreen} />
-      <Tab.Screen name="SAVED_ITEMS_LIST" component={Screens.SavedItemsScreen} />
+      <Tab.Screen
+        name="RECIPES_LIST"
+        component={Screens.RecipesScreen}
+        options={{ title: 'Receitas' }}
+      />
+      <Tab.Screen
+        name="PRICE_CALCULATOR"
+        component={Screens.PriceCalculatorScreen}
+        options={{ title: 'Preços' }}
+      />
+      <Tab.Screen
+        name="INGREDIENTS_LIST"
+        component={Screens.IngredientsScreen}
+        options={{ title: 'Ingredientes' }}
+      />
+      <Tab.Screen
+        name="LABEL_GENERATOR"
+        component={Screens.LabelGeneratorScreen}
+        options={{ title: 'Etiquetas' }}
+      />
+      <Tab.Screen
+        name="SAVED_ITEMS_LIST"
+        component={Screens.SavedItemsScreen}
+        options={{ title: 'Itens Salvos' }}
+      />
     </Tab.Navigator>
   </NavigationContainer>
 );
