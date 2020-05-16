@@ -80,10 +80,9 @@ function MainTabs() {
         component={Screens.SavedItemsScreen}
         options={{ title: 'Itens Salvos' }}
       />
-    </Tab.Navigator >
+    </Tab.Navigator>
   );
 }
-
 const Stack = createStackNavigator();
 
 function Routes() {
