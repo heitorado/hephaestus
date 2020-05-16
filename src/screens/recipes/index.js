@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
-import ListItem from 'components/list_item';
+import ListItem from 'components/list_item/index';
 
 class RecipesScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipes: [
-        { id: 1, name: 'Sabonete Glicerinado' },
-        { id: 2, name: 'Vela Aromática' },
-        { id: 3, name: 'Esfera Efervescente' },
-        { id: 4, name: 'Óleo de Banho' },
-        { id: 5, name: 'Sabonete Água de Arroz' },
-        { id: 6, name: 'Sabonete Cold Process' },
-        { id: 7, name: 'Aromatizador de ambiente' },
-        { id: 8, name: 'fiquei sem ideia' },
-        { id: 9, name: 'fiquei sem ideia' },
-        { id: 10, name: 'fiquei sem ideia' },
-        { id: 11, name: 'fiquei sem ideia' },
-        { id: 12, name: 'fiquei sem ideia' },
-        { id: 13, name: 'fiquei sem ideia' },
-        { id: 14, name: 'fiquei sem ideia' },
-        { id: 15, name: 'fiquei sem ideia' },
-        { id: 16, name: 'fiquei sem ideia' },
-        { id: 17, name: 'fiquei sem ideia' },
-        { id: 18, name: 'fiquei sem ideia' },
-        { id: 19, name: 'fiquei sem ideia' },
-        { id: 20, name: 'fiquei sem ideia' },
+        { id: 1, name: 'Sabonete Glicerinado', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 2, name: 'Vela Aromática', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 3, name: 'Esfera Efervescente', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 4, name: 'Óleo de Banho', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 5, name: 'Sabonete Água de Arroz', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 6, name: 'Sabonete Cold Process', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 7, name: 'Aromatizador de ambiente', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 8, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 9, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 10, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 11, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 12, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 13, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 14, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 15, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 16, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 17, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 18, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 19, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
+        { id: 20, name: 'Algum outro produto', description: 'Soap ipsum dolor sit amet conseqtur adpliscing elit' },
       ],
     };
   }
