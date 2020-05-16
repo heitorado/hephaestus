@@ -2,7 +2,6 @@
   "expo": {
     "name": "hephaestus",
     "slug": "hephaestus",
-    "entryPoint": "./src/index.js",
     "platforms": [
       "ios",
       "android",
