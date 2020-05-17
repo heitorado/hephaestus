@@ -9,7 +9,7 @@ export default {
     justifyContent: 'center',
     right: 20,
     bottom: 20,
-    backgroundColor: colors.primaryLight,
+    backgroundColor: colors.primaryLighter,
     borderRadius: 30,
     elevation: 8,
   },
