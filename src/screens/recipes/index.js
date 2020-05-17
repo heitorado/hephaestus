@@ -33,7 +33,7 @@ class RecipesScreen extends Component {
     };
   }
 
-  renderRecipeItem = ({ item }) => <ListItem recipe={item} />
+  renderRecipeItem = ({ item }) => <ListItem titleText={item.name} subText={item.description} />
 
   render() {
     const { recipes } = this.state;
