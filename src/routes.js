@@ -1,16 +1,18 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Screens from 'screens/index';
 import { Feather } from '@expo/vector-icons';
+import colors from './styles/colors';
 
 const Tab = createBottomTabNavigator();
 
 function getHeaderTitle(route) {
   const routeName = route.state
     ? route.state.routes[route.state.index].name
-    : route.params?.screen || 'Feed';
+    : route.params?.screen || 'Receitas';
 
   switch (routeName) {
     case 'RECIPES_LIST':
@@ -32,53 +34,62 @@ function MainTabs() {
   return (
     <Tab.Navigator
       initialRouteName="RECIPES_LIST"
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-
-          if (route.name === 'RECIPES_LIST') {
-            iconName = 'list';
-          } else if (route.name === 'PRICE_CALCULATOR') {
-            iconName = 'dollar-sign';
-          } else if (route.name === 'INGREDIENTS_LIST') {
-            iconName = 'grid';
-          } else if (route.name === 'LABEL_GENERATOR') {
-            iconName = 'tag';
-          } else if (route.name === 'SAVED_ITEMS_LIST') {
-            iconName = 'archive';
-          }
-
-          return <Feather name={iconName} size={size} color={focused ? 'orange' : color} />;
-        },
-      })}
+      tabBarOptions={{
+        showLabel: false,
+        activeTintColor: colors.secondaryDarker,
+        inactiveTintColor: colors.white,
+        tabStyle: { backgroundColor: colors.primary },
+      }}
     >
       <Tab.Screen
         name="RECIPES_LIST"
         component={Screens.RecipesScreen}
-        options={({ route }) => ({
-          title: 'Receitas',
-          headerTitle: route.name,
-        })}
+        options={{
+          tabBarLabel: 'Receitas',
+          tabBarIcon: ({ color }) => (
+            <Feather name="list" color={color} size={28} />
+          ),
+        }}
       />
       <Tab.Screen
         name="PRICE_CALCULATOR"
         component={Screens.PriceCalculatorScreen}
-        options={{ title: 'Preços' }}
+        options={{
+          tabBarLabel: 'Preços',
+          tabBarIcon: ({ color }) => (
+            <Feather name="dollar-sign" color={color} size={28} />
+          ),
+        }}
       />
       <Tab.Screen
         name="INGREDIENTS_LIST"
         component={Screens.IngredientsScreen}
-        options={{ title: 'Ingredientes' }}
+        options={{
+          tabBarLabel: 'Ingredientes',
+          tabBarIcon: ({ color }) => (
+            <Feather name="grid" color={color} size={28} />
+          ),
+        }}
       />
       <Tab.Screen
         name="LABEL_GENERATOR"
         component={Screens.LabelGeneratorScreen}
-        options={{ title: 'Etiquetas' }}
+        options={{
+          tabBarLabel: 'Etiquetas',
+          tabBarIcon: ({ color }) => (
+            <Feather name="tag" color={color} size={28} />
+          ),
+        }}
       />
       <Tab.Screen
         name="SAVED_ITEMS_LIST"
         component={Screens.SavedItemsScreen}
-        options={{ title: 'Itens Salvos' }}
+        options={{
+          tabBarLabel: 'Itens Salvos',
+          tabBarIcon: ({ color }) => (
+            <Feather name="archive" color={color} size={28} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
@@ -87,17 +98,27 @@ const Stack = createStackNavigator();
 
 function Routes() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="HOME"
-          component={MainTabs}
-          options={({ route }) => ({
-            headerTitle: getHeaderTitle(route),
-          })}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor={colors.primaryLight} />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="HOME"
+            component={MainTabs}
+            options={({ route }) => ({
+              headerTitle: getHeaderTitle(route),
+              headerStyle: {
+                backgroundColor: colors.primary,
+              },
+              headerTintColor: colors.white,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            })}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
