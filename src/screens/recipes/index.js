@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import ListItem from 'components/list_item/index';
+import FloatingActionButton from 'components/floating_action_button/index';
 
 class RecipesScreen extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class RecipesScreen extends Component {
           keyExtractor={(item) => String(item.id)}
           renderItem={this.renderRecipeItem}
         />
-        <Text>I am the Recipes screen.</Text>
+        <FloatingActionButton />
       </View>
     );
   }
