@@ -15,6 +15,7 @@
     "@react-navigation/drawer": "^5.7.2",
     "@react-navigation/native": "^5.3.0",
     "@react-navigation/stack": "^5.3.2",
+    "apollo-boost": "^0.4.9",
     "apollo-client": "^2.6.10",
     "expo": "~37.0.3",
     "graphql": "^15.1.0",
